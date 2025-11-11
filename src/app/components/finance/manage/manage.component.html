@@ -1,0 +1,37 @@
+<div class="manager-page container-fluid py-3">
+  <!-- Navbar -->
+  <ul class="nav nav-tabs mb-3">
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="activeTab === 'overview'"
+        href="#"
+        (click)="setActiveTab('overview'); $event.preventDefault()"
+      >
+        Overview
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="activeTab === 'report'"
+        (click)="setActiveTab('report'); $event.preventDefault()"
+      >
+        Report
+      </a>
+    </li>
+  </ul>
+
+  <!-- Alert bar -->
+  <app-alert-bar message="Reminder: Pay your taxes until 09/20/2025."></app-alert-bar>
+
+  <!-- Dynamic Content -->
+  <div class="tab-content mt-3">
+    <div *ngIf="activeTab === 'overview'">
+      <app-overview></app-overview>
+    </div>
+    <div *ngIf="activeTab === 'report'">
+      Report content goes here.
+    </div>
+  </div>
+</div>

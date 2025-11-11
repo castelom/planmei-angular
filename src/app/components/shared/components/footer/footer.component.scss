@@ -1,0 +1,119 @@
+.footer {
+  background-color: #f8f9fa;
+  padding: 3rem 2rem 1rem;
+  border-top: 1px solid #e0e0e0;
+  color: #003366;
+  font-size: 0.95rem;
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    // Responsive design
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    @media (min-width: 769px) and (max-width: 992px) {
+      grid-template-columns: 1fr 1fr;
+      
+      .footer-column:last-child {
+        grid-column: 1 / -1;
+        text-align: center;
+      }
+    }
+  }
+
+  .footer-column {
+    h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #003366;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 0.6rem;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #003366;
+      transition: color 0.3s ease;
+
+      &:hover,
+      &.active {
+        color: #2E8B57;
+      }
+    }
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 5rem;
+
+    img {
+      height: 80px;
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      padding: 8px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .brand {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #003366;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+
+    a {
+      font-size: 1.2rem;
+      color: #003366;
+      transition: all 0.3s ease;
+      padding: 0.5rem;
+      border-radius: 50%;
+
+      &:hover {
+        color: #2E8B57;
+        background-color: rgba(46, 139, 87, 0.1);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.85rem;
+    color: #555;
+  }
+}

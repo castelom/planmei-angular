@@ -1,0 +1,106 @@
+<div class="manage-overview container py-3">
+  <!-- Month Filter -->
+  <div class="row mb-4">
+    <div class="col-12 align-items-center d-flex">
+      <label for="monthFilter" class="form-label fw-bold">Select month:</label>
+      <select 
+        id="monthFilter" 
+        [(ngModel)]="selectedMonth" 
+        (ngModelChange)="onMonthChange()"
+        class="form-select w-auto d-inline-block ms-2"
+      >
+        <option *ngFor="let month of months" [value]="month.value">{{ month.label }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <div class="row g-3">
+      <!-- Revenue -->
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Revenue</h5>
+            <div *ngIf="loading" class="text-center py-5">
+              <div class="spinner-border text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+            <div *ngIf="!loading">
+              <p class="card-text fs-4 fw-bold text-success">
+                $ {{ formatCurrency(overviewData.revenue) }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expenses -->
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Expenses</h5>
+            <div *ngIf="loading" class="text-center py-5">
+              <div class="spinner-border text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+            <div *ngIf="!loading">
+              <p class="card-text fs-4 fw-bold text-danger">
+                $ {{ formatCurrency(overviewData.expenses) }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profit -->
+    <div class="row g-3 mt-2">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Profit</h5>
+            <div *ngIf="loading" class="text-center py-5">
+              <div class="spinner-border text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+            <div *ngIf="!loading">
+              <p class="card-text fs-4 fw-bold text-dark">
+                $ {{ profit }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Goal Progress -->
+    <div class="row g-3 mt-4">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h6 class="card-title">Monthly Revenue Goal</h6>
+            <div class="progress" style="height: 20px;">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                [style.width.%]="getProgressPercentage()"
+                [attr.aria-valuenow]="getProgressPercentage()"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                {{ getProgressPercentage() }}%
+              </div>
+            </div>
+            <small class="text-muted d-block mt-2">
+              Reached: $ {{ formatCurrency(overviewData.revenue) }} / Goal: $ {{ targetAmount }}
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary mt-4" (click)="saySomething()">Click here!</button>
+</div>

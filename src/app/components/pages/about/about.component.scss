@@ -1,0 +1,61 @@
+.about-page {
+  .about-hero {
+    background: linear-gradient(to right, #0a3d62, #3c6382);
+    height: 40vh;
+  }
+
+  .cta {
+    background: linear-gradient(to right, #3c6382, #0a3d62);
+  }
+
+  .project-overview {
+    img {
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .developer {
+    img {
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .animate__animated {
+    animation-duration: 1s;
+  }
+
+  // Custom button hover effects
+  .btn {
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    .about-hero {
+      height: 30vh;
+      
+      h1 {
+        font-size: 2rem !important;
+      }
+    }
+
+    .project-overview {
+      .col-md-6 {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

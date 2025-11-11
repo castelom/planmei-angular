@@ -1,0 +1,17 @@
+<header class="navbar gap-5">
+  <div class="logo">
+    <img src="planmei.png" alt="Logo" />
+  </div>
+  <nav class="nav-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+  </nav>
+  <div *ngIf="!isLoggedIn">
+    <a routerLink="/login">
+      <button class="btn-login">Login</button>
+    </a>
+  </div>
+  <div *ngIf="isLoggedIn">
+    <span>Welcome {{ userName }}</span>
+  </div>
+</header>
